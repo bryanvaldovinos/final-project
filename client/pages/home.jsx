@@ -1,10 +1,10 @@
 import React from 'react';
-import HelloWorld from '../components/hello-world';
+import EntryForm from '../components/entryform';
 
 export default function Home(props) {
   return (
     <div>
-      <HelloWorld />
+      <EntryForm />
     </div>
   );
 }

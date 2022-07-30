@@ -1,8 +1,25 @@
 import React from 'react';
-import Home from './pages/home';
+import EntryForm from './components/entryform';
+import Static from './components/static';
 
 export default class App extends React.Component {
+
   render() {
-    return <Home />;
+    const trackPic = {
+      backgroundImage: "url('/images/track.webp')",
+      height: '100vh',
+      objectFit: 'fill',
+      width: '100%',
+      backgroundSize: '1100px',
+      backgroundRepeat: 'no-repeat',
+      position: 'fixed',
+      backgroundPosition: '0% 100%'
+    };
+    return (
+      <div style={trackPic}>
+        <Static />
+        <EntryForm />
+      </div>
+    );
   }
 }
