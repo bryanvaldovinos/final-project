@@ -37,9 +37,10 @@ export default class EntryForm extends React.Component {
       },
       body: JSON.stringify(this.state)
     })
-      .then(res => res.json())
+      .then(() => {
+        this.setState({ showResults: true });
+      })
       .catch(err => err);
-    this.setState({ showResults: true });
   }
 
   render() {
