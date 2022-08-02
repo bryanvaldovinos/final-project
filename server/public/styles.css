@@ -1,15 +1,71 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.single-runner {
+  font-family: Nokora, cambrian, serif;
+  color: white;
+  background-color: #3f6385;
+  border-radius: 10px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.25rem;
+  width: 90%;
+  padding-left: 20px;
+  box-shadow: 3px 3px 3px #a9ad7d;
+}
+
 .nav {
   background-color: #7c3d3d;
   margin-top: 30px;
   padding-left: 15px;
+  margin-bottom: 25px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  position: relative;
+  z-index: 0;
+}
+
+.finish {
+  color: #a9ad7d;
 }
 
 .logo {
   color: white;
   font-family: "Gemunu Libre", Cambria, serif;
-  font-size: 2.75rem;
+  font-size: 3rem;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.rec-space {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.inline {
+  display: inline;
+}
+
+.right {
+  float: right;
+}
+
+.records {
+  font-size: 1.5rem;
+  font-family: Nokora, cambrian, serif;
+  color: white;
+  margin: 18px 20px;
 }
 
 form {
@@ -30,14 +86,6 @@ form {
   border: none;
   color: white;
   background-color: #7c3d3d;
-}
-
-.row {
-  display: flex;
-}
-
-.col-90 {
-  width: 90%;
 }
 
 .center {
@@ -68,7 +116,6 @@ input[type="text"] {
 }
 
 select {
-  width: 320px;
   font-size: 1.35rem;
 }
 
@@ -131,4 +178,20 @@ label {
   margin-bottom: 25px;
   display: flex;
   justify-content: center;
+}
+
+.align-self {
+  align-self: center;
+}
+
+.name-area,
+.distance-area,
+.time-area {
+  width: 100%;
+}
+
+.name-input,
+.distance-input,
+.time-input {
+  width: 100%;
 }

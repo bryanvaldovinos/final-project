@@ -1,10 +1,19 @@
 import React from 'react';
-import NavBar from './navbar';
+// import NavBar from './navbar';
 
 export default function Static(props) {
+  const trackPic = {
+    backgroundImage: "url('/images/track.webp')",
+    minHeight: '100vh',
+    width: '100%',
+    backgroundSize: 'cover',
+    position: 'fixed',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '10% 50%'
+  };
   return (
-    <div>
-      <NavBar />
+    <div style={trackPic}>
+      { props.children }
     </div>
   );
 }

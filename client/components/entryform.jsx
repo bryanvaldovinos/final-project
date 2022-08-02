@@ -22,10 +22,12 @@ export default class EntryForm extends React.Component {
   }
 
   closeModal() {
-    this.setState({ showResults: false });
-    this.setState({ name: '' });
-    this.setState({ distance: '' });
-    this.setState({ time: '' });
+    this.setState({
+      showResults: false,
+      name: '',
+      distance: '',
+      time: ''
+    });
   }
 
   handleSubmit(event) {
@@ -46,51 +48,53 @@ export default class EntryForm extends React.Component {
   render() {
     const { handleChange, handleSubmit } = this;
     return (
-      <div>
+      <div className='entry'>
         <div className='row center'>
-            <form className='col-90 center form-pad' onSubmit={handleSubmit}>
-              <div className='row'>
-                <label>Name
-                <input
-                required
-                name="name"
-                type="text"
-                value = {this.state.name}
-                onChange={handleChange}
-                size="28"
-                placeholder='Enter name here..' />
+            <form className='col-90 form-pad' onSubmit={handleSubmit}>
+              <div className='row flex-d'>
+                <div className='col-33 marg-l'>
+                  <label className='name-area'>Name
+                  <input
+                  required
+                  name="name"
+                  type="text"
+                  value = {this.state.name}
+                  onChange={handleChange}
+                  className='name-input'
+                  placeholder='Enter name here..' />
+                  </label>
+                </div>
+                <div className='col-33 marg-lr'>
+                <label className='distance-area'>Distance
+                  <select required
+                          name="distance"
+                          onChange={handleChange}
+                          value={this.state.distance}
+                          className='distance-input'>
+                    <option disabled hidden className='select-dist' value="">Select a distance..</option>
+                    <option value='3200m'>3200m</option>
+                    <option value='1600m'>1600m</option>
+                    <option value='800m'>800m</option>
+                  </select>
                 </label>
-              </div>
-              <div className='row'>
-              <label>Distance
-                <select required
-                        name="distance"
-                        onChange={handleChange}
-                        value={this.state.distance}
-                        width="200px">
-                  <option disabled hidden className='select-dist' value="">Select a distance..</option>
-                  <option value='3200m'>3200m</option>
-                  <option value='1600m'>1600m</option>
-                  <option value='800m'>800m</option>
-                </select>
-              </label>
-              </div>
-              <div className='row'>
-              <label>Finish Time
-                <input
-                 required
-                 name="time"
-                 type="text"
-                 value={this.state.time}
-                 onChange={handleChange}
-                 size="28"
-                 placeholder='Enter time here..' />
-              </label>
+                </div>
+              <div className='col-33 marg-r'>
+                <label className='time-area'>Finish Time
+                  <input
+                  required
+                  name="time"
+                  type="text"
+                  value={this.state.time}
+                  onChange={handleChange}
+                  className='time-input'
+                  placeholder='Enter time here..' />
+                </label>
+                </div>
               </div>
               <div className='row center'>
-              <button type='submit' className='add'>
-                ADD THIS RECORD
-              </button>
+                <button type='submit' className='add'>
+                  ADD THIS RECORD
+                </button>
               </div>
             </form>
         </div>
