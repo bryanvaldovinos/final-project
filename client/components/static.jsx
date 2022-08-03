@@ -7,7 +7,7 @@ export default function Static(props) {
     minHeight: '100vh',
     width: '100%',
     backgroundSize: 'cover',
-    position: 'fixed',
+    position: 'absolute',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '10% 50%'
   };

@@ -42,17 +42,25 @@
     margin-top: 0;
     padding-left: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
   }
 
   li {
     list-style: none;
-    width: 350px;
+    width: 340px;
   }
 
   .container {
     max-width: 82.5%;
     margin: auto;
+  }
+
+  .modal > .modal-content {
+    margin-top: 10%;
+  }
+
+  .modal > .dmodal-cont {
+    margin-top: 18%;
   }
 }
