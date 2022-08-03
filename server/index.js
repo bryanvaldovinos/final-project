@@ -59,6 +59,32 @@ app.post('/api/records/insert', (req, res, next) => {
     .catch(err => err);
 });
 
+app.delete('/api/records/:recordId', (req, res) => {
+  const recordid = req.params.recordId;
+  if (!recordid) {
+    throw new ClientError(400, 'id must be provided');
+  }
+  if (isNaN(recordid)) {
+    throw new ClientError(400, 'provided recordid must be an integer');
+  }
+  const param = [recordid];
+  const sql = `
+    delete from "records"
+      where "recordId" = $1
+      returning *;
+  `;
+  db.query(sql, param)
+    .then(result => {
+      const records = result.rows;
+      if (!records[0]) {
+        res.status(404).send({ error: `cannot find record with id ${recordid}` });
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch(err => err);
+});
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {

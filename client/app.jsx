@@ -19,6 +19,7 @@ export default class App extends React.Component {
     window.addEventListener('hashchange', () => {
       this.setState({ route: parseRoute(window.location.hash) });
     });
+    this.getRunners();
   }
 
   getRunners() {
@@ -34,7 +35,7 @@ export default class App extends React.Component {
       return <EntryForm />;
     }
     if (path === 'records') {
-      return <RunnerList runners={this.state.runners} />;
+      return <RunnerList runners={this.state.runners} get={this.getRunners} />;
     }
   }
 
