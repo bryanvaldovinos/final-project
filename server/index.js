@@ -21,8 +21,20 @@ if (process.env.NODE_ENV === 'development') {
   app.use(express.static(publicPath));
 }
 
-app.get('/api/hello', (req, res) => {
-  res.json({ hello: 'world' });
+app.get('/api/records', (req, res, next) => {
+  const sql = `
+    select "runnerName",
+            "distance",
+            "time",
+            "recordId"
+      from "records"
+  `;
+
+  db.query(sql)
+    .then(result => {
+      res.status(200).json(result.rows);
+    })
+    .catch(err => err);
 });
 
 app.use(express.json());
