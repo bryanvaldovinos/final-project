@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from './addmodal';
+import Modal from '../components/addmodal';
 
 export default class EntryForm extends React.Component {
   constructor(props) {
@@ -18,7 +18,6 @@ export default class EntryForm extends React.Component {
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-
   }
 
   closeModal() {

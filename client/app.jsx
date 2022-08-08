@@ -1,9 +1,10 @@
 import React from 'react';
-import EntryForm from './components/entryform';
+import EntryForm from './pages/entryform';
 import Static from './components/static';
 import parseRoute from './lib/parse-route';
-import RunnerList from './components/records';
+import RunnerList from './pages/records';
 import NavBar from './components/navbar';
+import TopRunners from './pages/top-runners';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -35,7 +36,17 @@ export default class App extends React.Component {
       return <EntryForm />;
     }
     if (path === 'records') {
-      return <RunnerList runners={this.state.runners} get={this.getRunners} />;
+      return (
+        <>
+          <RunnerList runners={this.state.runners} get={this.getRunners} />;
+          <div className='y-bar'><a href="#toprunners">VIEW RECORD HOLDERS</a></div>
+        </>
+      );
+    }
+    if (path === 'toprunners') {
+      return (
+        <TopRunners runners={this.state.runners} />
+      );
     }
   }
 

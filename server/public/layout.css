@@ -48,12 +48,30 @@
 
   li {
     list-style: none;
-    width: 340px;
+    width: 330px;
   }
 
-  .container {
-    max-width: 82.5%;
-    margin: auto;
+  div > .container {
+    max-width: 85%;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 8.5%;
+  }
+
+  div > .entry {
+    margin-top: 7.5%;
+  }
+
+  div > .chart-cont {
+    margin-top: 8%;
+  }
+
+  div > .chart-div {
+    width: 60%;
+  }
+
+  div > .chart-div > .b > .col-80 {
+    width: 80%;
   }
 
   .modal > .modal-content {
