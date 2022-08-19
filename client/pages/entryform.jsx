@@ -49,7 +49,7 @@ export default class EntryForm extends React.Component {
     return (
       <div className='entry'>
         <div className='row center'>
-            <form className='col-90 form-pad' onSubmit={handleSubmit}>
+            <form className='entry-form col-90 form-pad' onSubmit={handleSubmit}>
               <div className='row flex-d'>
                 <div className='col-33 marg-l'>
                   <label className='name-area'>Name

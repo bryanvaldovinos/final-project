@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   Chart,
+  Tooltip,
+  PointElement,
   BarController,
   LinearScale,
   CategoryScale,
@@ -9,6 +11,8 @@ import {
 
 Chart.register(
   BarController,
+  Tooltip,
+  PointElement,
   LinearScale,
   CategoryScale,
   BarElement
@@ -43,7 +47,7 @@ export default class OneGraph extends React.Component {
       return runr;
     });
     const order = eventRunners.sort((a, b) => a.time - b.time);
-    const topTen = order.slice(0, 10);
+    const topTen = order.slice(0, 5);
     const topNames = topTen.map(x => x.name);
     const topTimes = topTen.map(x => x.time);
 
@@ -88,6 +92,7 @@ export default class OneGraph extends React.Component {
   }
 
   componentDidUpdate(prevState) {
+    this.chart.destroy();
     if (this.state.event !== prevState.event) {
       this.updateGraph();
     }
@@ -102,10 +107,12 @@ export default class OneGraph extends React.Component {
           <canvas ref={this.runChart}></canvas>
           </div>
 
-          <div className='rec-option'>
-            <button className='rec-but' onClick={this.handleChange} value='3200m'>3200m</button>
-            <button className='rec-but' onClick={this.handleChange} value='1600m'>1600m</button>
-            <button className='rec-but' onClick={this.handleChange} value='800m'>800m</button>
+          <div>
+            <form className='rec-option'>
+              <button className={this.state.event === '3200m' ? 'rec-but rec-red' : 'rec-but'} onClick={this.handleChange} value='3200m'>3200m</button>
+              <button className={this.state.event === '1600m' ? 'rec-but rec-red' : 'rec-but'} onClick={this.handleChange} value='1600m'>1600m</button>
+              <button className={this.state.event === '800m' ? 'rec-but rec-red' : 'rec-but'} onClick={this.handleChange} value='800m'>800m</button>
+            </form>
           </div>
 
         </div>
