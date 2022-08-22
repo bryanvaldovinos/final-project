@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from './addmodal';
+import Modal from '../components/addmodal';
 
 export default class EntryForm extends React.Component {
   constructor(props) {
@@ -18,7 +18,6 @@ export default class EntryForm extends React.Component {
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-
   }
 
   closeModal() {
@@ -50,7 +49,7 @@ export default class EntryForm extends React.Component {
     return (
       <div className='entry'>
         <div className='row center'>
-            <form className='col-90 form-pad' onSubmit={handleSubmit}>
+            <form className='entry-form col-90 form-pad' onSubmit={handleSubmit}>
               <div className='row flex-d'>
                 <div className='col-33 marg-l'>
                   <label className='name-area'>Name

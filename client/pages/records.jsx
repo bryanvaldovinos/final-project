@@ -1,5 +1,5 @@
 import React from 'react';
-import DModal from './deletemodal';
+import DModal from '../components/deletemodal';
 
 class Runner extends React.Component {
   render() {
